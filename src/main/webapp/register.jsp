@@ -21,7 +21,7 @@
 				<option>Chennai</option>
 				<option>Gurgaom</option>
 				<option>Trivendrum</option>
-			</select>
+			</select><br><br>
 		<input type="submit" value="Register"/>
 	</form>
 </body>
