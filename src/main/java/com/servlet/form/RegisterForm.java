@@ -41,7 +41,7 @@ public class RegisterForm extends HttpServlet{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			// 2. Establish the connection,
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/reg2023");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/reg2023","root","boss");
 			
 			// 3. Prepare the statement,
 			PreparedStatement ps = con.prepareStatement("INSERT INTO register VALUES(?,?,?,?,?)");
@@ -50,31 +50,33 @@ public class RegisterForm extends HttpServlet{
 								ps.setString(2, gender);
 								ps.setString(3, city);
 								ps.setString(4, password);
+								
 					int executeUpdate = ps.executeUpdate();
 					
 					if(executeUpdate > 0){
 						
 						resp.setContentType("text/html");
-						pw.print("<h3 style='green'>User registered successfully,</h3>");
+//						pw.print("<h3 style='green'>User registered successfully,</h3>");
 						
-						RequestDispatcher rd = req.getRequestDispatcher("register.jsp");
+						RequestDispatcher rd = req.getRequestDispatcher("/register.jsp");
 											rd.forward(req, resp);
 					}
 					else {
 						
 						resp.setContentType("text/html");
-						pw.print("<h3 style='red'>Unable to register,</h3>");
+//						pw.print("<h3 style='red'>Unable to register,</h3>");
 						
-						RequestDispatcher rd = req.getRequestDispatcher("register.jsp");
-											rd.forward(req, resp);
+//						RequestDispatcher rd = req.getRequestDispatcher("/register.jsp");
+//											rd.forward(req, resp);
+												req.getRequestDispatcher("/register.jsp").include(req, resp);
 					}
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 			resp.setContentType("text/html");
-			pw.print("<h3 style='red'>Exception Occured :"+e.getMessage()+"</h3>");
+//			pw.print("<h3 style='red'>Exception Occured :"+e.getMessage()+"</h3>");
 			
-			RequestDispatcher rd = req.getRequestDispatcher("register.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("/register.jsp");
 								rd.forward(req, resp);
 		}
 	}
