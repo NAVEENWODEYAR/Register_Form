@@ -1,1 +1,2 @@
-Legacy Projects are using Struts,
+Check the software versions and the mandatory requirements for the project,
+basic setup and use the legacy versions for the legacy projects., 
