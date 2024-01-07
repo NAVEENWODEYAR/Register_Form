@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 public class LoginForm extends HttpServlet{
 
 	/**
-	 * @author Naveen Wodeyar
+	 * @author Naveen K Wodeyar
 	 * @Date 01-01-2024
 	 */
 	private static final long serialVersionUID = 5367057451405748693L;
@@ -52,7 +52,7 @@ public class LoginForm extends HttpServlet{
 									rd.include(req, resp);
 			}else {
 				
-				pw.print("<h2> Credentials mismatched, Please provide correct details.</h2>");
+				pw.print("<h2> Credentials mismatched, Please provide correct details to login.</h2>");
 				RequestDispatcher rd = req.getRequestDispatcher("/login.jsp");
 									rd.include(req, resp);
 				
